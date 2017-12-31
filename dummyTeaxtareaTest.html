@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <textarea></textarea>
+  <canvas width="300" height="250"></canvas>
+  <script>
+    //http://bililite.com/inc/jquery.sendkeys.js
+
+// Z/S/Q/D to A/W/S/D
+document.addEventListener("keydown", function(e){
+  //console.log(e.key, e.char, e.keyCode);
+  var evtRecipient = document;
+  if( e.target.tagName == 'TEXTAREA' ) evtRecipient = e.target;
+  
+  if( e.keyCode === 90 ){ // Z
+    e.preventDefault();
+    var e = new KeyboardEvent("keydown", {
+      bubbles : true, cancelable : true, key : "a", char : "a", keyCode: 65, shiftKey : false
+    });
+    evtRecipient.dispatchEvent(e);
+    if( e.target.tagName == 'TEXTAREA' ) e.target.value += 'a';
+  } else if( e.keyCode === 83 ){ // S
+    e.preventDefault();
+    var e = new KeyboardEvent("keydown", {
+      bubbles : true, cancelable : true, key : "w", char : "w", keyCode: 87, shiftKey : false
+    });
+    evtRecipient.dispatchEvent(e);
+    if( e.target.tagName == 'TEXTAREA' ) e.target.value += 'w';
+  } else if( e.keyCode === 81 ){ // Q
+    e.preventDefault();
+    var e = new KeyboardEvent("keydown", {
+      bubbles : true, cancelable : true, key : "s", char : "s", keyCode: 83, shiftKey : false
+    });
+    evtRecipient.dispatchEvent(e);
+    if( e.target.tagName == 'TEXTAREA' ) e.target.value += 's';
+  } else {
+    //console.log('[ keydown ]' + e.key, e.char, e.keyCode);
+  }
+  /*
+    else if( e.keyCode === 68 ){ // D
+    e.preventDefault();
+    var e = new KeyboardEvent("keydown", {
+      bubbles : true, cancelable : true, key : "ArrowRight", char : undefined, keyCode: 39, shiftKey : false
+    });
+    document.dispatchEvent(e);
+  }
+  */
+});
+
+document.addEventListener("keyup", function(e){
+  //console.log(e.key, e.char, e.keyCode);
+  var evtRecipient = document;
+  if( e.target.tagName == 'TEXTAREA' ) evtRecipient = e.target;
+  
+  if( e.keyCode === 90 ){ // Z
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
+      bubbles : true, cancelable : true, key : "a", char : "a", keyCode: 65, shiftKey : false
+    });
+    evtRecipient.dispatchEvent(e);
+  } else if( e.keyCode === 83 ){ // S
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
+      bubbles : true, cancelable : true, key : "w", char : "w", keyCode: 87, shiftKey : false
+    });
+    evtRecipient.dispatchEvent(e);
+  } else if( e.keyCode === 81 ){ // Q
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
+      bubbles : true, cancelable : true, key : "s", char : "s", keyCode: 83, shiftKey : false
+    });
+    evtRecipient.dispatchEvent(e);
+  } else {
+    //console.log('[ keyup ]' + e.key, e.char, e.keyCode);
+  }
+  /*
+    else if( e.keyCode === 68 ){ // D
+    e.preventDefault();
+    var e = new KeyboardEvent("keydown", {
+      bubbles : true, cancelable : true, key : "ArrowRight", char : undefined, keyCode: 39, shiftKey : false
+    });
+    document.dispatchEvent(e);
+  }
+  */
+});
+
+
+/* listen for keypresses on the canvas */
+var cnvs = document.querySelector('canvas');
+cnvs.addEventListener("keydown", function(e){
+  //console.log(e.key, e.char, e.keyCode);
+  /*
+  if(e.key === 'a'){
+    console.log('key "A" keydown on the canvas');
+  }
+  */
+});
+  </script>
+</body>
+</html>
