@@ -5,6 +5,7 @@ var e = new KeyboardEvent("keydown", {bubbles : true, cancelable : true, key : "
 element.dispatchEvent(e);
 */
 /* UP/DOWN/LEFT/RIGHT to ..
+// wanna test ? copy & paste in the following page's js console :) http://hughsk.io/ludum-dare-26/
 document.addEventListener("keydown", function(e){
   console.log(e.key, e.char, e.keyCode);
   
@@ -29,6 +30,36 @@ document.addEventListener("keydown", function(e){
   } else if( e.keyCode === 68 ){ // D
     e.preventDefault();
     var e = new KeyboardEvent("keydown", {
+      bubbles : true, cancelable : true, key : "ArrowRight", char : undefined, keyCode: 39, shiftKey : false
+    });
+    document.dispatchEvent(e);
+  }
+});
+
+document.addEventListener("keyup", function(e){
+  console.log(e.key, e.char, e.keyCode);
+  
+  if( e.keyCode === 65 ){ // A
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
+      bubbles : true, cancelable : true, key : "ArrowUp", char : undefined, keyCode: 38, shiftKey : false
+    });
+    document.dispatchEvent(e);
+  } else if( e.keyCode === 87 ){ // W
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
+      bubbles : true, cancelable : true, key : "ArrowDown", char : undefined, keyCode: 40, shiftKey : false
+    });
+    document.dispatchEvent(e);
+  } else if( e.keyCode === 83 ){ // S
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
+      bubbles : true, cancelable : true, key : "ArrowLeft", char : undefined, keyCode: 37, shiftKey : false
+    });
+    document.dispatchEvent(e);
+  } else if( e.keyCode === 68 ){ // D
+    e.preventDefault();
+    var e = new KeyboardEvent("keyup", {
       bubbles : true, cancelable : true, key : "ArrowRight", char : undefined, keyCode: 39, shiftKey : false
     });
     document.dispatchEvent(e);
